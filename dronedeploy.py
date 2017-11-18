@@ -103,26 +103,25 @@ else:
     height = PS_QR_dist
 
 
-width_ratio1 = 450
-height_ratio1 = 580
+width_ratio1 = 300
+height_ratio1 = 600
 
-width_ratio2 = 219
-height_ratio2= 285
+width_ratio2 = 130
+height_ratio2= 250
 
-# use scaling factors from 1 foot and 2 feet
+
 one_foot_height = 1 / (height / height_ratio1)
 one_foot_width = 1 / (width / width_ratio1)
 
 two_foot_height = 2 / (height / height_ratio2)
 two_foot_width = 2 / (width / width_ratio2)
 
-# Final distance is the average of above 4 parameters.
 distance_away = (one_foot_width + one_foot_height + two_foot_width + two_foot_height) / 4
 
 print("Image move {0:.2f} feet ".format(distance_away, min_dist, rotatedangle))
 
 cv2.drawContours(img, contours, max_area_index, (0, 125, 0), 3)
 cv2.imshow("result image", img)
-cv2.imwrite("process/result.PNG", img);  # Eriting  the output image.
+cv2.imwrite("process/result.PNG", img); 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
